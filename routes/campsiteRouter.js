@@ -10,9 +10,9 @@ campsiteRouter.route('/')
 .get(cors.cors, (req, res, next) => {
     Campsite.find()
     .populate('comments.author')
-    .then((campsites) => {
+    .then(campsites => {
         res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
+        res.setHeader('Content-Type', 'application/json');
         res.json(campsites);
     })
     .catch(err => next(err));
